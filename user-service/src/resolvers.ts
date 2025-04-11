@@ -20,6 +20,10 @@ const resolvers = {
       return await User.findById(user.userId);
     },
     users: async () => await User.find(),
+
+    getUserById: async (_: any, { id }: { id: string }) => {
+      return await User.findById(id);
+    },
   },
   Mutation: {
     register: async (_: any, { email, pseudo, password, role }: any) => {

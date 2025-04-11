@@ -1,5 +1,5 @@
 import { ClassModel } from './models/Class';
-import User from "./shared/User";
+import axios from 'axios';
 
 export const resolvers = {
   Query: {
@@ -62,12 +62,14 @@ export const resolvers = {
       const classToUpdate = await ClassModel.findById(classId);
       if (!classToUpdate) throw new Error("Class not found");
     
-      const student = await User.findById(studentId);
+      // Vérifie via user-service
+      const response = await axios.get(`http://user-service:4001/users/${studentId}`).catch(() => null);
+      const student = response?.data;
+    
       if (!student || student.role !== "student") throw new Error("Student not found");
     
-      // évite les doublons
-      if (!classToUpdate.students.includes(student._id.toString())) {
-        classToUpdate.students.push(student._id.toString());
+      if (!classToUpdate.students.includes(studentId)) {
+        classToUpdate.students.push(studentId);
         await classToUpdate.save();
       }
     
