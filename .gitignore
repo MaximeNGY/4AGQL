@@ -1,0 +1,10 @@
+class-service/node_modules/*
+user-service/node_modules/*
+grade-service/node_modules/*
+gateway/node_modules/*
+class-service/dist/*
+user-service/dist/*
+grade-service/dist/*
+gateway/dist/*
+.env
+.env.local

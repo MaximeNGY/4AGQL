@@ -1,0 +1,32 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+  user-service:
+    build: ./user-service
+    ports:
+      - "4001:4001"
+    depends_on:
+      - mongo
+  class-service:
+    build: ./class-service
+    ports:
+      - "4002:4002"
+    depends_on:
+      - mongo
+  grade-service:
+    build: ./grade-service
+    ports:
+      - "4003:4003"
+    depends_on:
+      - mongo
+  gateway:
+    build: ./gateway
+    ports:
+      - "4000:4000"
+    depends_on:
+      - user-service
+      - class-service
+      - grade-service
