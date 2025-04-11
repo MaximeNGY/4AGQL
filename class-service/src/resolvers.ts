@@ -1,5 +1,5 @@
 import { ClassModel } from './models/Class';
-import User from "user-service/src/models/User";
+import User from "./shared/User";
 
 export const resolvers = {
   Query: {

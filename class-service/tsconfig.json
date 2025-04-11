@@ -7,10 +7,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "baseUrl": ".", // Ajout de baseUrl pour les chemins relatifs
-    "paths": {
-      "user-service/*": ["../user-service/*"] // Remplace "user-service" par le chemin approprié
-    }
+    "baseUrl": ".",
   },
   "include": [
     "src"

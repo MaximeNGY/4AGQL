@@ -16,6 +16,7 @@ services:
       - "4002:4002"
     depends_on:
       - mongo
+      - user-service
   grade-service:
     build: ./grade-service
     ports:
