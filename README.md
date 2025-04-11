@@ -16,6 +16,12 @@ Microservices backend for student & professor school management (GraphQL + Feder
 - 📊 Grades (by course and class)
 
 ## 🚀 Start (Dev)
+
+For each services:
+```bash
+cp .env.example .env
+```
+
 ```bash
 docker-compose up --build
 ```
